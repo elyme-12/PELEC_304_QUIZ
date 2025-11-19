@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+
+</head>
+<body>
+    <div>
+        <h2> Register Account</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div> {{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button> Register </button>
+        </form>
+
+        <p>
+            Already have an account? <a href="{% url 'login_user' %}"> Login</a>
+        </p>
+    </div>
+</body>
+</html>
